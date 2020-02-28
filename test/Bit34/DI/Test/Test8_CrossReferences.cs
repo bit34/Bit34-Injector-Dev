@@ -1,11 +1,5 @@
-// Copyright (c) 2018 Oğuz Sandıkçı
-// This code is licensed under MIT license (see LICENSE.txt for details)
-
-using System;
 using Xunit;
-using Bit34.DI;
 using Bit34.DI.Test.Payloads;
-
 
 namespace Bit34.DI.Test
 {

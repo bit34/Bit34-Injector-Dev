@@ -1,12 +1,6 @@
-// Copyright (c) 2018 Oğuz Sandıkçı
-// This code is licensed under MIT license (see LICENSE.txt for details)
-
-using System;
 using Xunit;
-using Bit34.DI;
 using Bit34.DI.Error;
 using Bit34.DI.Test.Payloads;
-
 
 namespace Bit34.DI.Test
 {
@@ -74,7 +68,7 @@ namespace Bit34.DI.Test
             
             //  Check errors
             Assert.Equal(1, injector.ErrorCount);
-            Assert.Equal(InjectionErrorType.AlreadyAddedTypeWithDifferentProvider,injector.GetError(0).Error);
+            Assert.Equal(InjectionErrorType.AlreadyAddedTypeWithDifferentProvider,injector.GetError(0).error);
         }
 
     }
