@@ -3,24 +3,22 @@
 
 using System;
 using Xunit;
-using Minic.DI;
-using Minic.DI.Error;
-using Minic.DI.Test.Payloads;
+using Bit34.DI;
+using Bit34.DI.Error;
+using Bit34.DI.Test.Payloads;
 
 
-namespace Minic.DI.Test
+namespace MinBit34ic.DI.Test
 {
-    public class Test5_UnifyingValueProviders
+    public class Test4_UnifyingTypedProviders
     {
         [Fact]
         public void Test_UnifyTypedProvidersWithSameType()
         {
             Injector injector = new Injector();
             
-            SimpleClassA value = new SimpleClassA();
-
             //  Add first binding
-            injector.AddBinding<ISimpleInterfaceA>().ToValue(value);
+            injector.AddBinding<ISimpleInterfaceA>().ToType<SimpleClassA>();
 
             //  Check bindings and providers
             Assert.Equal(1, injector.BindingCount);
@@ -29,18 +27,15 @@ namespace Minic.DI.Test
             //  Check errors
             Assert.Equal(0, injector.ErrorCount);
 
-            //  Add second binding to same value
-            injector.AddBinding<ISimpleInterfaceAA>().ToValue(value);
+            //  Add second binding with same provider type
+            injector.AddBinding<ISimpleInterfaceAA>().ToType<SimpleClassA>();
             
             //  Check bindings and providers
             Assert.Equal(2, injector.BindingCount);
             Assert.Equal(1, injector.ProviderCount);
 
-            //  Check errors
-            Assert.Equal(0, injector.ErrorCount);
-
-            //  Add third binding to same value
-            injector.AddBinding<SimpleClassA>().ToValue(value);
+            //  Add third binding with same provider type
+            injector.AddBinding<SimpleClassA>().ToType<SimpleClassA>();
             
             //  Check bindings and providers
             Assert.Equal(3, injector.BindingCount);
@@ -51,12 +46,12 @@ namespace Minic.DI.Test
         }
         
         [Fact]
-        public void Test_Error_AlreadyAddedValueProviderWithDifferentProvider()
+        public void Test_Error_AlreadyAddedTypedProviderWithDifferentProvider()
         {
             Injector injector = new Injector();
             
             //  Add first binding to a value
-            injector.AddBinding<ISimpleInterfaceAA>().ToType<SimpleClassA>();
+            injector.AddBinding<ISimpleInterfaceAA>().ToValue(new SimpleClassA());
 
             //  Check bindings and providers
             Assert.Equal(1, injector.BindingCount);
@@ -66,7 +61,7 @@ namespace Minic.DI.Test
             Assert.Equal(0, injector.ErrorCount);
 
             //  Add second binding with same provider type
-            injector.AddBinding<ISimpleInterfaceA>().ToValue(new SimpleClassA());
+            injector.AddBinding<ISimpleInterfaceA>().ToType<SimpleClassA>();
 
             //  Check bindings and providers
             Assert.Equal(2, injector.BindingCount);

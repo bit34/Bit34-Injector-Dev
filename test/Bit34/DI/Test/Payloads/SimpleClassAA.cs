@@ -3,11 +3,10 @@
 
 using System;
 
-namespace Minic.DI.Test.Payloads
+namespace Bit34.DI.Test.Payloads
 {
-    public class CrossReferenceClassB
+    public class SimpleClassAA : ISimpleInterfaceAA
     {
-        [Inject]
-        public CrossReferenceClassA value;
+        public float Value;
     }
 }

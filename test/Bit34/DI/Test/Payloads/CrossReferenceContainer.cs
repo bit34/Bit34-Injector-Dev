@@ -3,7 +3,7 @@
 
 using System;
 
-namespace Minic.DI.Test.Payloads
+namespace Bit34.DI.Test.Payloads
 {
     public class CrossReferenceContainer
     {

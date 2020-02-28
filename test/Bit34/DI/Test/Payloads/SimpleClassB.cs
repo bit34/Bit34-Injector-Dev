@@ -3,8 +3,10 @@
 
 using System;
 
-namespace Minic.DI.Test.Payloads
+namespace Bit34.DI.Test.Payloads
 {
-    class ExtendedClassThatUses_SimpleClassA : ClassThatUses_SimpleClassA
-    {}
+    public class SimpleClassB : ISimpleInterfaceB
+    {
+        public int Value;
+    }
 }

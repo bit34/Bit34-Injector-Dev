@@ -3,22 +3,23 @@
 
 using System;
 using Xunit;
-using Minic.DI;
-using Minic.DI.Error;
-using Minic.DI.Test.Payloads;
+using Bit34.DI;
+using Bit34.DI.Error;
+using Bit34.DI.Test.Payloads;
 
 
-namespace Minic.DI.Test
+namespace Bit34.DI.Test
 {
-    public class Test6_TypedInjections
+    public class Test7_ValueInjections
     {
         [Fact]
-        public void Test_TypedInjection()
+        public void Test_ValueInjection()
         {
             Injector injector = new Injector();
 
             //  Add first binding
-            injector.AddBinding<SimpleClassA>().ToType<SimpleClassA>();
+            SimpleClassA value = new SimpleClassA();
+            injector.AddBinding<SimpleClassA>().ToValue(value);
 
             //  Create injection target
             ClassThatUses_SimpleClassA target = new ClassThatUses_SimpleClassA();
@@ -36,15 +37,18 @@ namespace Minic.DI.Test
             //  Check after injection
             Assert.NotNull(target.value1);
             Assert.NotNull(target.value2);
+            Assert.Same(value,target.value1);
+            Assert.Same(value,target.value2);
         }
 
         [Fact]
-        public void Test_TypedInjectionToNestedMembers()
+        public void Test_ValueInjectionToNestedMembers()
         {
             Injector injector = new Injector();
 
             //  Add first binding
-            injector.AddBinding<SimpleClassA>().ToType<SimpleClassA>();
+            SimpleClassA value = new SimpleClassA();
+            injector.AddBinding<SimpleClassA>().ToValue(value);
 
             //  Create injection target
             ExtendedClassThatUses_SimpleClassA target = new ExtendedClassThatUses_SimpleClassA();
@@ -62,15 +66,18 @@ namespace Minic.DI.Test
             //  Check after injection
             Assert.NotNull(target.value1);
             Assert.NotNull(target.value2);
+            Assert.Same(value,target.value1);
+            Assert.Same(value,target.value2);
         }
 
         [Fact]
-        public void Test_TypedInjectionToAssignableType()
+        public void Test_ValueInjectionToAssignableType()
         {
             Injector injector = new Injector();
 
             //  Add first binding
-            injector.AddBinding<ISimpleInterfaceA>().ToType<SimpleClassA>();
+            SimpleClassA value = new SimpleClassA();
+            injector.AddBinding<ISimpleInterfaceA>().ToValue(value);
 
             //  Create injection target
             ClassThatUses_SimpleInterfaceA target = new ClassThatUses_SimpleInterfaceA();
@@ -89,12 +96,13 @@ namespace Minic.DI.Test
         }
 
         [Fact]
-        public void Test_Error_TypedInjectionToWrongType()
+        public void Test_Error_ValueInjectionToWrongType()
         {
             Injector injector = new Injector();
 
             //  Add first binding
-            injector.AddBinding<SimpleClassB>().ToType<SimpleClassB>();
+            SimpleClassB value = new SimpleClassB();
+            injector.AddBinding<SimpleClassB>().ToValue(value);
 
             //  Create injection target
             ClassThatUses_SimpleClassA target = new ClassThatUses_SimpleClassA();

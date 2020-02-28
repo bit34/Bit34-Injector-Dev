@@ -3,10 +3,10 @@
 
 using System;
 
-namespace Minic.DI.Test.Payloads
+namespace Bit34.DI.Test.Payloads
 {
-    public class SimpleClassA : ISimpleInterfaceA, ISimpleInterfaceAA
+    public class SimpleClassC
     {
-        public int Value;
+        public double Value;
     }
 }

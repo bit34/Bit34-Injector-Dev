@@ -3,11 +3,11 @@
 
 using System;
 using Xunit;
-using Minic.DI;
-using Minic.DI.Test.Payloads;
+using Bit34.DI;
+using Bit34.DI.Test.Payloads;
 
 
-namespace Minic.DI.Test
+namespace Bit34.DI.Test
 {
     public class Test8_CrossReferences
     {
