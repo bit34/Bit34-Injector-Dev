@@ -1,5 +1,4 @@
 using Xunit;
-using Bit34.DI.Error;
 using Bit34.DI.Test.Payloads;
 
 namespace Bit34.DI.Test
@@ -58,6 +57,7 @@ namespace Bit34.DI.Test
             Assert.Equal(0,injector.ErrorCount);
         }
         
+/*      This is no longer needed because provider setter now uses binding type as a generic type
         [Fact]
         public void Test_Error_AddingTypedProviderToWrongType()
         {
@@ -85,6 +85,6 @@ namespace Bit34.DI.Test
             Assert.Equal(2,injector.ErrorCount);
             Assert.Equal(InjectionErrorType.TypeNotAssignableToTarget, injector.GetError(1).error);
         }
-
+*/
     }
 }

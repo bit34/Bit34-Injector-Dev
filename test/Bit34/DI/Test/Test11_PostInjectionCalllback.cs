@@ -6,6 +6,7 @@ namespace Bit34.DI.Test
 {
     public class Test11_PostInjectionCalllback
     {
+/*  Post injection callback feature removed
         private bool _IscallbackCalled;
         private object _CallbackCaller;
 
@@ -14,7 +15,7 @@ namespace Bit34.DI.Test
             _IscallbackCalled = true;
             _CallbackCaller = callbackCaller;
         }
-
+  
         [Fact]
         public void Test_PostCallback()
         {
@@ -46,6 +47,6 @@ namespace Bit34.DI.Test
             Assert.True(_IscallbackCalled);
             Assert.Equal(value, _CallbackCaller);
         }
-        
+*/
     }
 }

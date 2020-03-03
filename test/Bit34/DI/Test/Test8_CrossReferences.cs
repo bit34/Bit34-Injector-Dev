@@ -1,5 +1,6 @@
 using Xunit;
 using Bit34.DI.Test.Payloads;
+using Bit34.DI.Test.Containers;
 
 namespace Bit34.DI.Test
 {
@@ -15,7 +16,7 @@ namespace Bit34.DI.Test
             injector.AddBinding<CrossReferenceClassB>().ToType<CrossReferenceClassB>();
 
             //  Create injection targets
-            CrossReferenceContainer target = new CrossReferenceContainer();
+            var target = new CrossReferenceContainer();
             
             //  Check before injection
             Assert.Null(target.valueA);

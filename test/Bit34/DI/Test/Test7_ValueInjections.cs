@@ -1,6 +1,7 @@
 using Xunit;
 using Bit34.DI.Error;
 using Bit34.DI.Test.Payloads;
+using Bit34.DI.Test.Containers;
 
 namespace Bit34.DI.Test
 {
@@ -16,11 +17,11 @@ namespace Bit34.DI.Test
             injector.AddBinding<SimpleClassA>().ToValue(value);
 
             //  Create injection target
-            ClassThatUses_SimpleClassA target = new ClassThatUses_SimpleClassA();
+            var target = new ClassThatUses_SimpleClassA();
 
             //  Check before injection
-            Assert.Null(target.value1);
             Assert.Null(target.value2);
+            Assert.Null(target.value1);
             
             //  Inject
             injector.InjectInto(target);
@@ -29,10 +30,10 @@ namespace Bit34.DI.Test
             Assert.Equal(0, injector.ErrorCount);
 
             //  Check after injection
-            Assert.NotNull(target.value1);
             Assert.NotNull(target.value2);
-            Assert.Same(value,target.value1);
+            Assert.NotNull(target.value1);
             Assert.Same(value,target.value2);
+            Assert.Same(value,target.value1);
         }
 
         [Fact]
@@ -41,15 +42,15 @@ namespace Bit34.DI.Test
             Injector injector = new Injector();
 
             //  Add first binding
-            SimpleClassA value = new SimpleClassA();
+            var value = new SimpleClassA();
             injector.AddBinding<SimpleClassA>().ToValue(value);
 
             //  Create injection target
-            ExtendedClassThatUses_SimpleClassA target = new ExtendedClassThatUses_SimpleClassA();
+            var target = new ExtendedClassThatUses_SimpleClassA();
 
             //  Check before injection
-            Assert.Null(target.value1);
             Assert.Null(target.value2);
+            Assert.Null(target.value1);
             
             //  Inject
             injector.InjectInto(target);
@@ -58,10 +59,10 @@ namespace Bit34.DI.Test
             Assert.Equal(0, injector.ErrorCount);
 
             //  Check after injection
-            Assert.NotNull(target.value1);
             Assert.NotNull(target.value2);
-            Assert.Same(value,target.value1);
+            Assert.NotNull(target.value1);
             Assert.Same(value,target.value2);
+            Assert.Same(value,target.value1);
         }
 
         [Fact]
@@ -70,11 +71,11 @@ namespace Bit34.DI.Test
             Injector injector = new Injector();
 
             //  Add first binding
-            SimpleClassA value = new SimpleClassA();
+            var value = new SimpleClassA();
             injector.AddBinding<ISimpleInterfaceA>().ToValue(value);
 
             //  Create injection target
-            ClassThatUses_SimpleInterfaceA target = new ClassThatUses_SimpleInterfaceA();
+            var target = new ClassThatUses_SimpleInterfaceA();
 
             //  Check before injection
             Assert.Null(target.value);
@@ -95,15 +96,15 @@ namespace Bit34.DI.Test
             Injector injector = new Injector();
 
             //  Add first binding
-            SimpleClassB value = new SimpleClassB();
+            var value = new SimpleClassB();
             injector.AddBinding<SimpleClassB>().ToValue(value);
 
             //  Create injection target
-            ClassThatUses_SimpleClassA target = new ClassThatUses_SimpleClassA();
+            var target = new ClassThatUses_SimpleClassA();
 
             //  Check before injection
-            Assert.Null(target.value1);
             Assert.Null(target.value2);
+            Assert.Null(target.value1);
             
             //  Inject
             injector.InjectInto(target);
@@ -114,8 +115,8 @@ namespace Bit34.DI.Test
             Assert.Equal(InjectionErrorType.CanNotFindBindingForType,injector.GetError(1).error);
 
             //  Check after injection
-            Assert.Null(target.value1);
             Assert.Null(target.value2);
+            Assert.Null(target.value1);
         }
     }
 }

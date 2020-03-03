@@ -1,6 +1,7 @@
 using Xunit;
 using Bit34.DI.Error;
 using Bit34.DI.Test.Payloads;
+using Bit34.DI.Test.Containers;
 
 namespace Bit34.DI.Test
 {
@@ -46,7 +47,7 @@ namespace Bit34.DI.Test
             Assert.Equal(0,injector.ErrorCount);
 
             //  Get instance
-            ClassThatUses_SimpleClassA value = new ClassThatUses_SimpleClassA();
+            var value = new ClassThatUses_SimpleClassA();
             injector.InjectInto(value);
 
             //  Try adding a new binding
