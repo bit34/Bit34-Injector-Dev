@@ -1,10 +1,10 @@
 using Xunit;
-using Bit34.DI.Test.Payloads;
-using Bit34.DI.Error;
-using Bit34.DI.Test.Containers;
-using Bit34.DI.Test.OtherContainers;
+using Com.Bit34Games.DI.Test.Payloads;
+using Com.Bit34Games.DI.Error;
+using Com.Bit34Games.DI.Test.Containers;
+using Com.Bit34Games.DI.Test.OtherContainers;
 
-namespace Bit34.DI.Test
+namespace Com.Bit34Games.DI.Test
 {
     public class Test12_InjectionRestrictions
     {
@@ -14,7 +14,7 @@ namespace Bit34.DI.Test
             Injector injector = new Injector();
 
             //  Add first
-            injector.AddBinding<SimpleClassA>().ToType<SimpleClassA>().RestrictToNamespace("Bit34.DI.Test.Containers");
+            injector.AddBinding<SimpleClassA>().ToType<SimpleClassA>().RestrictToNamespace("Com.Bit34Games.DI.Test.Containers");
 
             //  Validate binding
             Assert.Equal(1, injector.BindingCount);

@@ -1,6 +1,6 @@
-using Bit34.DI.Test.Payloads;
+using Com.Bit34Games.DI.Test.Payloads;
 
-namespace Bit34.DI.Test.OtherContainers
+namespace Com.Bit34Games.DI.Test.OtherContainers
 {
     class ClassThatUses_SimpleClassA_InAnotherNamespace
     {

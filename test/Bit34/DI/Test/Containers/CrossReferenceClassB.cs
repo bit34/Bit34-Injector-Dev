@@ -1,4 +1,4 @@
-namespace Bit34.DI.Test.Containers
+namespace Com.Bit34Games.DI.Test.Containers
 {
     public class CrossReferenceClassB
     {

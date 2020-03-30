@@ -1,8 +1,8 @@
 using Xunit;
-using Bit34.DI.Test.Payloads;
+using Com.Bit34Games.DI.Test.Payloads;
 
 
-namespace Bit34.DI.Test
+namespace Com.Bit34Games.DI.Test
 {
     public class Test11_PostInjectionCalllback
     {

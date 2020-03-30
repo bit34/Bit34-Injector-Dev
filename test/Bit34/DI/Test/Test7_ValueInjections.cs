@@ -1,9 +1,9 @@
 using Xunit;
-using Bit34.DI.Error;
-using Bit34.DI.Test.Payloads;
-using Bit34.DI.Test.Containers;
+using Com.Bit34Games.DI.Error;
+using Com.Bit34Games.DI.Test.Payloads;
+using Com.Bit34Games.DI.Test.Containers;
 
-namespace Bit34.DI.Test
+namespace Com.Bit34Games.DI.Test
 {
     public class Test7_ValueInjections
     {

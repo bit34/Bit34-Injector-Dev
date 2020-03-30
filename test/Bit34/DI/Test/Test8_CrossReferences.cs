@@ -1,8 +1,8 @@
 using Xunit;
-using Bit34.DI.Test.Payloads;
-using Bit34.DI.Test.Containers;
+using Com.Bit34Games.DI.Test.Payloads;
+using Com.Bit34Games.DI.Test.Containers;
 
-namespace Bit34.DI.Test
+namespace Com.Bit34Games.DI.Test
 {
     public class Test8_CrossReferences
     {

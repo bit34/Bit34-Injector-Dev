@@ -1,9 +1,9 @@
 using Xunit;
-using Bit34.DI;
-using Bit34.DI.Error;
-using Bit34.DI.Test.Payloads;
+using Com.Bit34Games.DI;
+using Com.Bit34Games.DI.Error;
+using Com.Bit34Games.DI.Test.Payloads;
 
-namespace MinBit34ic.DI.Test
+namespace Com.Bit34Games.DI.Test
 {
     public class Test4_UnifyingTypedProviders
     {
