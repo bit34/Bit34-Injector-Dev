@@ -1,5 +1,3 @@
-## Bit34 DI (Dependency Injection) Library
+# **Bit34 Dependency Injection Library Development Repository**
 
-This is a dependency injection library with (intentionally) limited features to be used with our in-house MVC library.
-
-[Source only repository with a quick tutorial](https://github.com/bit34/Bit34-DI)
+This repository contains unit tests of our in-house [dependency injection library](https://github.com/bit34/Bit34-DI).
